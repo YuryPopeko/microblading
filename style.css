@@ -154,6 +154,11 @@ a.instagram {
 	text-align: left;
 }
 
+a[href^=tel],
+a[href^=mailto] {
+	text-decoration: none;
+}
+
 .head a[href^=tel] {
 	display: inline-block;
 	padding-right: 30px;
@@ -162,7 +167,6 @@ a.instagram {
 	font-size: 40px;
 	line-height: 71px;
 	font-weight: 300;
-	text-decoration: none;
 }
 
 .head p {
@@ -208,6 +212,7 @@ a.instagram {
     z-index: 1;
     background-position: center;
     background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .leaf1 {
@@ -267,7 +272,9 @@ button.modal {
 	background-repeat: no-repeat;
 	background-position-x: 0;
 	background-position-y: 0;
-	background-size: contain;
+	background-size: 43% 100%;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
 	box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, .15);
 	cursor: pointer;
 }
@@ -285,7 +292,7 @@ div.modal {
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	z-index: 1;
+	z-index: 3;
 	transform: translate(-50%, -50%) scale(0);
 	transition-duration: .2s;
 	transition-timing-function: ease-in-out;
@@ -301,6 +308,7 @@ div.dark {
 	position: fixed;
 	top: 0;
 	left: 0;
+	z-index: 2;	
 	background-color: rgba(0, 0, 0, 0);
 	transition-duration: .4s, 0s;
 	transition-property: background-color, height;
@@ -314,7 +322,8 @@ div.dark {
 	transition-delay: 0s;
 }
 
-div.modal .title {
+div.modal .title,
+.contacts .right .title {
 	font-size: 36px;
 	line-height: 45px;
 	font-weight: normal;
@@ -324,15 +333,22 @@ div.modal .title {
 	margin-bottom: 0;
 }
 
-div.modal span {
+div.modal span,
+.request .title + span {
 	font-size: 18px;
 }
 
 div.modal input:not([type=submit]) {
 	width: 100%;
+}
+
+div.modal input:not([type=submit]),
+.request input:not([type=submit]),
+.request textarea {
 	height: 55px;
 	font-size: 18px;
 	line-height: 55px;
+	font-family: Open Sans;
 	padding-left: 25px;
 	padding-right: 25px;
 	background-color: rgb(169, 84, 124);
@@ -340,15 +356,21 @@ div.modal input:not([type=submit]) {
 	color: rgb(255, 255, 255);
 }
 
-div.modal input::-webkit-input-placeholder {
+div.modal input::-webkit-input-placeholder,
+.request input::-webkit-input-placeholder,
+.request textarea::-webkit-input-placeholder {
 	color: rgb(255, 255, 255);
 }
 
-div.modal input::-moz-placeholder {
+div.modal input::-moz-placeholder,
+.request input::-moz-placeholder,
+.request textarea::-moz-placeholder {
 	color: rgb(255, 255, 255);
 }
 
-div.modal input::-ms-input-placeholder {
+div.modal input::-ms-input-placeholder,
+.request input::-ms-input-placeholder,
+.request textarea::-ms-input-placeholder {
 	color: rgb(255, 255, 255);
 }
 
@@ -357,7 +379,8 @@ div.modal input:first-child {
 	margin-bottom: 15px;
 }
 
-div.modal input[type=submit] {
+div.modal input[type=submit],
+.request input[type=submit] {
 	width: 100%;
 	font-size: 16px;
 	line-height: 60px;
@@ -408,7 +431,8 @@ h2::after {
 }
 
 .head .title::after,
-div.modal .title::after {
+div.modal .title::after,
+.contacts .right .title::after {
 	display: none;
 }
 
@@ -806,7 +830,7 @@ div.modal .title::after {
 	z-index: 2;
 }
 
-.half > img {
+.in .half > img {
 	width: 100%;
 }
 
@@ -897,6 +921,9 @@ div.modal .title::after {
 	left: 50%;
 	transform: translateY(-50%);
 	z-index: 2;
+	background-size: 34% 100%;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
 }
 
 .leaf6 {
@@ -990,7 +1017,7 @@ footer a {
 	border-bottom: 1px solid rgb(233, 233, 233);
 }
 
-main.in h1 {
+article h1 {
 	font-size: 30px;
 	line-height: 24px;
 	text-align: left;
@@ -998,7 +1025,7 @@ main.in h1 {
 	margin-bottom: 30px;
 }
 
-main.in h1::after {
+article h1::after {
 	display: none;
 }
 
@@ -1006,16 +1033,111 @@ article {
 	padding-bottom: 30px;
 }
 
-article .half.left {
+.in article .half.left {
 	height: 300px;
 	overflow: hidden;
 }
 
-article p {
+.in article p {
 	font-size: 18px;
 	line-height: 28px;
 	font-weight: 300;
 	padding-top: 30px;
+}
+
+.contacts article p {
+	font-size: 16px;
+	line-height: 38px;
+}
+
+.contacts a {
+	color: rgb(0, 0, 0);
+}
+
+.contacts .right {
+	padding-left: 0;
+	position: relative;
+	z-index: 1;
+}
+
+.contacts #map {
+	width: 100%;
+	height: 348px;
+	border: 26px solid rgb(228, 232, 233);
+}
+
+.request {
+	background-color: rgb(228, 232, 233);
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
+.request .left {
+	width: 370px;
+}
+
+.request img {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	margin-bottom: 10px;
+}
+
+.request .left span,
+.request .left p {
+	font-size: 16px;
+	line-height: 24px;
+	display: block;
+}
+
+.request p {
+	color: rgb(135, 135, 135);
+}
+
+.request .left b {
+	font-size: 29px;
+	line-height: 24px;
+	font-weight: 500;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 30px;
+}
+
+.request .right {
+	width: 700px;
+	text-align: center;
+	padding-top: 30px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+	padding-left: 30px;
+	color: rgb(255, 255, 255);
+	background-image: url(img/modal.jpg);
+	background-size: contain;
+}
+
+.request form input:nth-of-type(-n+2) {
+	display: inline-block;
+	width: 302px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.request form input:first-of-type {
+	margin-right: 30px;
+}
+
+.request textarea {
+	resize: none;
+	width: 100%;
+	height: 155px;
+}
+
+.request input[type=submit] {
+	width: 312px;
+}
+
+.request *[class^=leaf] {
+	transform: none;
 }
 
 @media (max-width: 1170px) and (min-width: 740px) {
@@ -1200,12 +1322,12 @@ article p {
 		left: 50%;
 	}
 
-	article .half.left {
+	.in article .half.left {
 		width: 100%;
 		height: 389px;
 	}
 
-	article .half.right {
+	.in article .half.right {
 		width: 570px;
 		padding-left: 0;
 		float: none;
@@ -1230,6 +1352,31 @@ article p {
 	main.in ~ .leaf9 {
 		top: 700%;
 	}
+
+	.contacts .right {
+		width: 100%;
+		margin-top: 20px;
+	}
+
+	.contacts #map {
+		height: 400px;
+	}
+
+	.request {
+		padding-top: 40px;
+	}
+
+	.request .left {
+		float: none;
+		clear: both;
+		margin-right: auto;
+		margin-left: auto;
+		text-align: center;
+	}
+
+	.request form input:nth-of-type(-n+2) {
+		width: 322px;
+	}
 }
 
 @media (max-width: 740px) {
@@ -1238,7 +1385,10 @@ article p {
 	}
 
 	header a {
+		display: block;
 		line-height: 17.1875vw;
+		padding-right: 4.6875vw;
+    	padding-left: 4.6875vw;
 	}
 
 	header .logo {
@@ -1265,8 +1415,6 @@ article p {
 		font-size: 5vw;
 		line-height: 15.3125vw;
 		border-top: .3125vw solid rgb(219, 219, 219);
-		padding-right: 4.6875vw;
-		padding-left: 4.6875vw;
 	}
 
 	nav li:last-child {
@@ -1463,22 +1611,27 @@ article p {
     	padding-left: 3.125vw;
     }
 
-    div.modal .title {
+    div.modal .title,
+    form,
+    .contacts .right .title {
     	font-size: 8.125vw;
     	line-height: 14.0625vw;
     }
 
-    div.modal span {
+    div.modal span,
+    .request .title + span {
     	font-size: 5vw;
     }
 
-    div.modal input:not([type=submit]) {
+    div.modal input:not([type=submit]),
+    .request input:not([type=submit]) {
     	font-size: 5.625vw;
     	line-height: 17.1875vw;
     	height: 17.1875vw;
     }
 
-    div.modal input[type=submit] {
+    div.modal input[type=submit],
+    .request input[type=submit] {
     	font-size: 5vw;
     }
 
@@ -1495,7 +1648,7 @@ article p {
     h1,
     span.title,
     h2,
-    main.in h1 {
+    article h1 {
     	font-size: 6.25vw;
     	line-height: 8.75vw;
     }
@@ -1741,7 +1894,7 @@ article p {
 		margin-bottom: 12.5vw;
 	}
 
-	article .half.left {
+	.in article .half.left {
 		width: 100%;
 		height: 62.5vw;
 	}
@@ -1768,5 +1921,36 @@ article p {
 
 	main.in ~ .leaf9 {
 		top: 1000%;
+	}
+
+	.contacts article p {
+		font-size: 4.375vw;
+		line-height: 11.875vw;
+	}
+
+	.request .left {
+		text-align: center;
+	}
+
+	.request .left span,
+	.request .left p {
+		font-size: 4.375vw;
+		line-height: 7.5vw;
+	}
+
+	.request .right {
+		padding-right: 3.125vw;
+		padding-left: 3.125vw;
+	}
+
+	.request input:first-of-type {
+		margin-top: 3.125vw
+	}
+
+	.request input,
+	.request textarea {
+		width: 100% !important;
+		margin-top: 3.125vw !important;
+		margin-bottom: 0 !important;
 	}
 }

@@ -82,3 +82,19 @@ $('.reviews .owl-carousel').owlCarousel({
 	nav: true,
 	navText: ['','']
 });
+
+
+
+
+function initMap() {
+	var microblading = {lat: 52.0947355, lng: 23.7145618};
+	var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 17,
+		center: microblading
+	});
+	var marker = new google.maps.Marker({
+		position: microblading,
+		map: map,
+		title: 'ИП Шакайло'
+	});
+}
