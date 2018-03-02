@@ -111,12 +111,11 @@ a.instagram {
 }
 
 .half {
-	width: 50%;
+	width: 570px;
 }
 
 .half.left {
 	float: left;
-	padding-right: 70px;
 }
 
 .half.right {
@@ -378,6 +377,10 @@ div.modal input[type=submit] {
 	background-size: contain, 476px auto, auto;
 	position: relative;
 	z-index: 2;
+}
+
+.introduction .half.left {
+	padding-right: 70px;
 }
 
 h1,
@@ -803,10 +806,8 @@ div.modal .title::after {
 	z-index: 2;
 }
 
-.price img {
-	width: 570px;
-	float: left;
-	margin-right: 30px;
+.half > img {
+	width: 100%;
 }
 
 .price ol {
@@ -955,7 +956,7 @@ footer .wrapper * {
 	text-align: center;
 }
 
-footer p {
+footer span {
 	font-size: 20px;
 	line-height: 38px;
 	margin-top: 45px;
@@ -976,13 +977,58 @@ footer a {
 	margin-bottom: 130px;
 }
 
+.breadcrumbs * {
+	font-size: 14px;
+	line-height: 49px;
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+}
+
+.breadcrumbs {
+	background-color: rgb(246, 246, 246);
+	border-top: 1px solid rgb(233, 233, 233);
+	border-bottom: 1px solid rgb(233, 233, 233);
+}
+
+main.in h1 {
+	font-size: 30px;
+	line-height: 24px;
+	text-align: left;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+main.in h1::after {
+	display: none;
+}
+
+article {
+	padding-bottom: 30px;
+}
+
+article .half.left {
+	height: 300px;
+	overflow: hidden;
+}
+
+article p {
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: 300;
+	padding-top: 30px;
+}
+
 @media (max-width: 1170px) and (min-width: 740px) {
 	.wrapper {
 		width: 740px;
 	}
 
 	.half.left {
-		padding-right: 30px;
+		width: 370px;
+	}
+
+	.half.right {
+		width: 340px;
 	}
 
 	.head .wrapper {
@@ -1018,6 +1064,10 @@ footer a {
 		background-position-x: 100%, 150%, 50%;
 	    background-position-y: 100%, 100%, 50%;
 	    background-size: auto 422px, 476px auto, auto;
+	}
+
+	.introduction .half.left {
+		padding-right: 30px;
 	}
 
 	h1,
@@ -1091,8 +1141,7 @@ footer a {
 		right: 44%;
 	}
 
-	.price img {
-		width: 370px;
+	.price .half.left {
 		margin-bottom: 30px;
 	}
 
@@ -1137,18 +1186,49 @@ footer a {
 	}
 
 	.leaf7 {
-		top: 640%;
+		top: 990%;
 		left: 100%;
 	}
 
 	.leaf8 {
-		top: 600%;
+		top: 910%;
 		left: -100%;
 	}
 
 	.leaf9 {
-		top: 610%;
+		top: 950%;
 		left: 50%;
+	}
+
+	article .half.left {
+		width: 100%;
+		height: 389px;
+	}
+
+	article .half.right {
+		width: 570px;
+		padding-left: 0;
+		float: none;
+		clear: both;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	article p {
+		font-size: 16px;
+		line-height: 24px;
+	}
+
+	main.in ~ .leaf7 {
+		top: 760%;
+	}
+
+	main.in ~ .leaf8 {
+		top: 660%;
+	}
+
+	main.in ~ .leaf9 {
+		top: 700%;
 	}
 }
 
@@ -1306,6 +1386,7 @@ footer a {
     	font-size: 9.375vw;
     	margin-top: 3.125vw;
     	margin-bottom: 6.25vw;
+    	text-align: center;
     }
 
     .head p {
@@ -1407,9 +1488,14 @@ footer a {
 	    background-size: auto 70.3125vw, auto 86.25vw, auto;
     }
 
+    .introduction .half.left {
+    	padding-right: 0;
+    }
+
     h1,
     span.title,
-    h2 {
+    h2,
+    main.in h1 {
     	font-size: 6.25vw;
     	line-height: 8.75vw;
     }
@@ -1594,10 +1680,6 @@ footer a {
 		top: 25%;
 	}
 
-	.price img {
-		width: 100%;
-	}
-
 	.price ol {
 		width: 100%;
 		font-size: 5vw;
@@ -1636,11 +1718,13 @@ footer a {
 
 	.best button {
 		width: 100%;
-		position: static;
+		position: relative;
+		left: 0;
+		z-index: 3;
 		transform: none;
 	}
 
-	footer p {
+	footer span {
 		font-size: 5vw;
 		line-height: 7.5vw;
 		margin-top: 7vw;
@@ -1655,5 +1739,34 @@ footer a {
 		font-size: 7.5vw;
 		line-height: 11.875vw;
 		margin-bottom: 12.5vw;
+	}
+
+	article .half.left {
+		width: 100%;
+		height: 62.5vw;
+	}
+
+	article .half.right {
+		width: 100%;
+		padding-left: 0;
+		float: none;
+		clear: both;
+	}
+
+	article p {
+		font-size: 5vw;
+		line-height: 7.5vw;
+	}
+
+	main.in ~ .leaf7 {
+		top: 1200%;
+	}
+
+	main.in ~ .leaf8 {
+		display: none;
+	}
+
+	main.in ~ .leaf9 {
+		top: 1000%;
 	}
 }
