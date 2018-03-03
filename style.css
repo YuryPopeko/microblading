@@ -830,7 +830,7 @@ div.modal .title::after,
 	z-index: 2;
 }
 
-.price .half > img {
+.in .half > img {
 	width: 100%;
 }
 
